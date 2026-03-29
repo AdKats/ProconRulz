@@ -1,8 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Text.RegularExpressions;
-using System.Threading;
 
 using PRoCon;
 using PRoCon.Core;
@@ -12,7 +9,6 @@ using PRoCon.Core.Players.Items;
 using PRoCon.Core.Plugin;
 using PRoCon.Core.Plugin.Commands;
 using PRoCon.Core.Remote;
-
 
 namespace PRoConEvents
 {
@@ -118,7 +114,7 @@ namespace PRoConEvents
                     WriteDebugInfo("ProconRulz: storing last rule " + parsed_rule.id.ToString() +
                                     " as " + parsed_rule.unparsed_rule);
                 }
-                WriteConsole(string.Format("ProconRulz: {0} rules loaded", rule_id - 1));
+                WriteConsole(String.Format("ProconRulz: {0} rules loaded", rule_id - 1));
                 // run 'On Init' rulz
                 OnInit();
             }
@@ -1487,7 +1483,6 @@ namespace PRoConEvents
             parsed_rule.parts.Add(p);
             return true;
         }
-
 
         #endregion
     }

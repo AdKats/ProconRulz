@@ -111,7 +111,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
-using System.Threading;
 
 using PRoCon;
 using PRoCon.Core;
@@ -121,7 +120,6 @@ using PRoCon.Core.Players.Items;
 using PRoCon.Core.Plugin;
 using PRoCon.Core.Plugin.Commands;
 using PRoCon.Core.Remote;
-
 
 namespace PRoConEvents
 {
@@ -167,7 +165,6 @@ namespace PRoConEvents
             Rate, Text, TargetPlayer, Ping,
             Set, Incr, Decr, Test
         };
-
 
         // flag for rule to fire either on player spawn, or a kill
         // Void mean absence of trigger
@@ -974,10 +971,10 @@ namespace PRoConEvents
             {
                 if (exp == null || exp == "") return "";
                 // try to get a number
-                float i;
+                Single i;
                 try
                 {
-                    i = float.Parse(exp);
+                    i = Single.Parse(exp);
                     return i.ToString();
                 }
                 catch { }
@@ -1136,7 +1133,7 @@ namespace PRoConEvents
                     case "<=": return !bigger(i, j);               // i <= j;
                     case "=<": return !bigger(i, j);               // i <= j;
                     case "contains": return i.Contains(j); // i contains j
-                    case "word": return Regex.IsMatch(i, string.Format(@"\b{0}\b", j), System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+                    case "word": return Regex.IsMatch(i, String.Format(@"\b{0}\b", j), System.Text.RegularExpressions.RegexOptions.IgnoreCase);
                     default: return false;
                 }
             }
@@ -1144,11 +1141,11 @@ namespace PRoConEvents
             // 
             private Boolean bigger(String x, String y)
             {
-                float i = 0, j = 0;
+                Single i = 0, j = 0;
                 try
                 {
-                    i = float.Parse(x);
-                    j = float.Parse(y);
+                    i = Single.Parse(x);
+                    j = Single.Parse(y);
                     return i > j;
                 }
                 catch { }
@@ -1163,7 +1160,7 @@ namespace PRoConEvents
                     return exp;
                 }
                 String left, right, left_result, right_result;
-                float left_float = 0, right_float = 0;
+                Single left_float = 0, right_float = 0;
                 Boolean left_num = false;
                 Boolean right_num = false;
                 foreach (Char op in new Char[4] { '+', '-', '*', '/' })
@@ -1177,13 +1174,13 @@ namespace PRoConEvents
                         right_result = reduce(right);
                         try
                         {
-                            left_float = float.Parse(left_result);
+                            left_float = Single.Parse(left_result);
                             left_num = true;
                         }
                         catch { };
                         try
                         {
-                            right_float = float.Parse(right_result);
+                            right_float = Single.Parse(right_result);
                             right_num = true;
                         }
                         catch { };
@@ -1429,7 +1426,7 @@ namespace PRoConEvents
                         String[] content;
                         content = File.ReadAllLines(filename);
                         ini_vars = new Dictionary<String, Dictionary<String, String>>();
-                        String currentSectionName = string.Empty;
+                        String currentSectionName = String.Empty;
                         foreach (String line in content)
                         {
                             Match m = _sectionRegex.Match(line.Trim());
@@ -1836,7 +1833,7 @@ namespace PRoConEvents
             } // end looping through parsed_rules
             WriteDebugInfo(String.Format("ProconRulz: These were the 'watched' items in the rules:"));
             WriteDebugInfo(String.Format("ProconRulz: {0}",
-                string.Join(", ", spawn_counts.list_items().ToArray())));
+                String.Join(", ", spawn_counts.list_items().ToArray())));
 
         }
 
@@ -1868,7 +1865,6 @@ namespace PRoConEvents
 
         // admins_list is a list of playernames og logged-on admins
         List<String> admins_list = new List<String>();
-
 
         // return true if reserved list is being used AND player is on reserved list
         // or player or clan is explicitly listed in whitelist or player is admin
@@ -2418,7 +2414,7 @@ namespace PRoConEvents
                 List<String> watched_items = spawn_counts.list_items();
 
                 WriteConsole(String.Format("ProconRulz: Watched items are: {0}",
-                    string.Join(", ", spawn_counts.list_items().ToArray())));
+                    String.Join(", ", spawn_counts.list_items().ToArray())));
 
                 List<String> debug_list = new List<String>();
 
@@ -2535,7 +2531,7 @@ namespace PRoConEvents
                 wi++;
             }
             kit_lines[wi] = "</table>";
-            String kits_string = string.Join(" ", kit_lines);
+            String kits_string = String.Join(" ", kit_lines);
 
             String[] weapons = new String[weaponDefines.Count + 3];
             weapons[0] = "<table>";
@@ -2556,7 +2552,7 @@ namespace PRoConEvents
                                              );
             }
             weapons[wi] = "</table>";
-            String weapon_string = string.Join(" ", weapons);
+            String weapon_string = String.Join(" ", weapons);
 
             String[] specs = new String[specDefines.Count + 3];
             specs[0] = "<table>";
@@ -2573,7 +2569,7 @@ namespace PRoConEvents
                                             );
             }
             specs[wi] = "</table>";
-            String spec_string = string.Join("", specs);
+            String spec_string = String.Join("", specs);
 
             String desc = String.Format(@"<h2>ProconRulz Procon plugin</h2>
                 <p>Please see <a href=""http://www.forsterlewis.com/proconrulz.pdf"">the ONLINE documentation</a>
@@ -2604,7 +2600,7 @@ namespace PRoConEvents
                         ",
                         Environment.NewLine,
                         weapon_string,
-                        string.Join(", ", Enum.GetNames(typeof(DamageTypes))),
+                        String.Join(", ", Enum.GetNames(typeof(DamageTypes))),
                         spec_string,
                         kits_string
                         );
@@ -2617,7 +2613,7 @@ namespace PRoConEvents
 
         public String CreateEnumString(String Name, String[] valueList)
         {
-            return string.Format("enum.{0}_{1}({2})", GetType().Name, Name, string.Join("|", valueList));
+            return String.Format("enum.{0}_{1}({2})", GetType().Name, Name, String.Join("|", valueList));
         }
         public String CreateEnumString(Type enumeration)
         {

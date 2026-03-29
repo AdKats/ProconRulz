@@ -1,8 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Text.RegularExpressions;
-using System.Threading;
 
 using PRoCon;
 using PRoCon.Core;
@@ -12,7 +9,6 @@ using PRoCon.Core.Players.Items;
 using PRoCon.Core.Plugin;
 using PRoCon.Core.Plugin.Commands;
 using PRoCon.Core.Remote;
-
 
 namespace PRoConEvents
 {
@@ -297,7 +293,6 @@ namespace PRoConEvents
             // e.g. TargetPlayer)
             // this would be more efficient if I only updated the keywords that are
             // actually used in the rulz
-
 
             // update player count etc for this rule (for use of %c% parameter 
             // or subsequent Count condition)
@@ -805,7 +800,6 @@ namespace PRoConEvents
             return !c.negated; // i.e. spawn item above count, non-negated rule => return true
         }
 
-
         #endregion
 
         #region     Track various real-time counts of kills, rule rates etc
@@ -943,7 +937,6 @@ namespace PRoConEvents
             if (!rule_counts[player_name].ContainsKey(rule_id)) return 0;
             return rule_counts[player_name][rule_id];
         }
-
 
         // manage counts for TEAM and SERVER
         private Int32 count_team_rule(String team_id, Int32 rule_id)

@@ -1,8 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Text.RegularExpressions;
-using System.Threading;
 
 using PRoCon;
 using PRoCon.Core;
@@ -12,7 +9,6 @@ using PRoCon.Core.Players.Items;
 using PRoCon.Core.Plugin;
 using PRoCon.Core.Plugin.Commands;
 using PRoCon.Core.Remote;
-
 
 namespace PRoConEvents
 {
@@ -483,17 +479,17 @@ namespace PRoConEvents
                 } // end looping through weapons in inventory
                 // store %wk% subst var (weapon keys)
                 if (weapon_keys.Count > 0)
-                    keywords.Add(SubstEnum.WeaponKey, string.Join(", ", weapon_keys.ToArray()));
+                    keywords.Add(SubstEnum.WeaponKey, String.Join(", ", weapon_keys.ToArray()));
                 else
                     keywords.Add(SubstEnum.WeaponKey, "No weapon key");
                 // store %w% subst var (weapon names)
                 if (weapon_names.Count > 0)
-                    keywords.Add(SubstEnum.Weapon, string.Join(", ", weapon_names.ToArray()));
+                    keywords.Add(SubstEnum.Weapon, String.Join(", ", weapon_names.ToArray()));
                 else
                     keywords.Add(SubstEnum.Weapon, "No weapon");
                 // store %d% subst var (damages)
                 if (damages.Count > 0)
-                    keywords.Add(SubstEnum.Damage, string.Join(", ", damages.ToArray()));
+                    keywords.Add(SubstEnum.Damage, String.Join(", ", damages.ToArray()));
                 else
                     keywords.Add(SubstEnum.Damage, "No damage");
 
@@ -515,12 +511,12 @@ namespace PRoConEvents
                 } // end looping through specs in inventory
                 // store %speck% subst var (spec keys)
                 if (spec_keys.Count > 0)
-                    keywords.Add(SubstEnum.SpecKey, string.Join(", ", spec_keys.ToArray()));
+                    keywords.Add(SubstEnum.SpecKey, String.Join(", ", spec_keys.ToArray()));
                 else
                     keywords.Add(SubstEnum.SpecKey, "No spec key");
                 // store %spec% subst var (specializations)
                 if (spec_names.Count > 0)
-                    keywords.Add(SubstEnum.Spec, string.Join(", ", spec_names.ToArray()));
+                    keywords.Add(SubstEnum.Spec, String.Join(", ", spec_names.ToArray()));
                 else
                     keywords.Add(SubstEnum.Spec, "No spec");
 

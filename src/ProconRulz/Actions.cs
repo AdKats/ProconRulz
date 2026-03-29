@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Text.RegularExpressions;
 using System.Threading;
 
@@ -12,7 +11,6 @@ using PRoCon.Core.Players.Items;
 using PRoCon.Core.Plugin;
 using PRoCon.Core.Plugin.Commands;
 using PRoCon.Core.Remote;
-
 
 namespace PRoConEvents
 {
@@ -72,7 +70,6 @@ namespace PRoConEvents
 
             do_action(player_name, p, keywords);
         }
-
 
         // execute the action (kill in a separate thread which can sleep if necessary)
         void do_action(String target, PartClass a, Dictionary<SubstEnum, String> keywords)
