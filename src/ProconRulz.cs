@@ -1743,7 +1743,7 @@ namespace PRoConEvents
 
         public String GetPluginVersion() { return version; }
 
-        public String GetPluginAuthor() { return auth_name; }
+        public String GetPluginAuthor() { return auth_name + " (maintained by Prophet731)"; }
 
         public String GetPluginWebsite() { return ""; }
 
