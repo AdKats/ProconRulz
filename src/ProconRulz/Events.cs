@@ -175,7 +175,7 @@ namespace PRoConEvents
             {
                 if (game_id == GameIdEnum.BF3 ||
                     game_id == GameIdEnum.BFBC2 ||
-                    game_id == GameIdEnum.MoH ||
+                    game_id == GameIdEnum.MOH ||
                     ++round_over_event_count == 3)
                 {
                     // check rules for On Round trigger

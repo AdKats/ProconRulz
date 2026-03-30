@@ -139,7 +139,7 @@ namespace PRoConEvents
         //**********************************************************************************************
         //**********************************************************************************************
 
-        enum GameIdEnum { BFBC2, MoH, BF3, BF4 }
+        enum GameIdEnum { BFBC2, MOH, BF3, BF4 }
 
         enum ReserveItemEnum { Player_loses_item_when_dead, Player_reserves_item_until_respawn }
 
