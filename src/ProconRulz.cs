@@ -2940,10 +2940,7 @@ namespace PRoConEvents
         #endregion
 
         #region HTTP Server
-        /*
-        public virtual HttpWebServerResponseData OnHttpRequest(HttpWebServerRequestData data) {
-        }
-        */
+        // Removed in Procon v2 — HTTP server replaced by SignalR layer
         #endregion
 
         #endregion
